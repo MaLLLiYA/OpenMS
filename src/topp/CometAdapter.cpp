@@ -98,6 +98,14 @@ protected:
 
   map<string,int> num_enzyme_termini {{"semi",1},{"fully",2},{"C-term unspecific", 8},{"N-term unspecific",9}};
 
+  std::string generateSetString_(const char residue) const
+  {
+    std::string set_str = "set_";
+    set_str += residue;
+    set_str += "_residue";
+    return set_str;
+  }
+
   void registerOptionsAndFlags_() override
   {
 
@@ -130,7 +138,7 @@ protected:
     //registerIntOption_("mass_type_fragment", "<num>", 1, "0=average masses, 1=monoisotopic masses", false, true);
     //registerIntOption_("precursor_tolerance_type", "<num>", 0, "0=average masses, 1=monoisotopic masses", false, false);
     registerStringOption_(Constants::UserParam::ISOTOPE_ERROR, "<choice>", "off", "This parameter controls whether the peptide_mass_tolerance takes into account possible isotope errors in the precursor mass measurement. Use -8/-4/0/4/8 only for SILAC.", false, false);
-    setValidStrings_(Constants::UserParam::ISOTOPE_ERROR, ListUtils::create<String>("off,0/1,0/1/2,0/1/2/3,-8/-4/0/4/8,-1/0/1/2/3"));
+    setValidStrings_(Constants::UserParam::ISOTOPE_ERROR, ListUtils::create<String>("off,0/1,0/1/2,0/1/2/3,-1/0/1/2/3,-1/0/1,-3/-2/-1/0/1/2/3,-8/-4/0/4/8"));
 
     //Fragment Ions
     registerDoubleOption_("fragment_mass_tolerance", "<tolerance>", 0.01,
@@ -210,6 +218,13 @@ protected:
     registerIntOption_("spectrum_batch_size", "<posnum>", 20000, "max. number of spectra to search at a time; use 0 to search the entire scan range in one batch", false, true);
     setMinInt_("spectrum_batch_size", 0);
     registerDoubleList_("mass_offsets", "<doubleoffset1, doubleoffset2,...>", {0.0}, "One or more mass offsets to search (values subtracted from deconvoluted precursor mass). Has to include 0.0 if you want the default mass to be searched.", false, true);
+    registerStringOption_("pinfile_protein_delimiter", "<delimiter>", "", "specify a different character or string for the protein column delimiter (default tab)", false, true);
+    
+    for (char residue = 'A'; residue <= 'Z'; ++residue)
+    {
+      std::string set_str = generateSetString_(residue);
+      registerDoubleOption_(set_str, "<mass>", 0.0, "Redefine the base mass of this residue; applies to both the average and monoisotopic mass (default of 0.0 will use Comet's default masses)", false, true);
+    }
 
     // spectral processing
     registerIntOption_("minimum_peaks", "<posnum>", 10, "Required minimum number of peaks in spectrum to search (default 10)", false, true);
@@ -238,6 +253,18 @@ protected:
     registerIntOption_("max_variable_mods_in_peptide", "<num>", 5, "Set a maximum number of variable modifications per peptide", false, true);
     registerStringOption_("require_variable_mod", "<bool>", "false", "If true, requires at least one variable modification per peptide", false, true);
     setValidStrings_("require_variable_mod", ListUtils::create<String>("true,false"));
+
+    // fragment ion indexing parameters
+    registerDoubleOption_("fragindex_max_fragmentmass", "<mass>", 2000.0, "The maximum fragment ion mass to include in the fragment ion index", false, true);
+    registerDoubleOption_("fragindex_min_fragmentmass", "<mass>", 200.0, "The minimum fragment ion mass to include in the fragment ion index", false, true);
+    registerIntOption_("fragindex_min_ions_report", "<num>", 3, "The minimum number fragment ions a peptide must match against the fragment ion index in order to report this peptide in the output", false, true);
+    setMinInt_("fragindex_min_ions_report", 1);
+    registerIntOption_("fragindex_min_ions_score", "<num>", 3, "The minimum number fragment ions a peptide must match against the fragment ion index in order to proceed to xcorr scoring", false, true);
+    setMinInt_("fragindex_min_ions_score", 1);
+    registerIntOption_("fragindex_num_spectrumpeaks", "<num>", 100, "The number of mass/intensity pairs that would be queried against the fragment ion index", false, true);
+    setMinInt_("fragindex_num_spectrumpeaks", 1);
+    registerStringOption_("fragindex_skipreadprecursors", "<bool>", "false", "Whether or not Comet reads all precursors from the input files, if true, skip reading precursors from the input file", false, true);
+    setValidStrings_("fragindex_skipreadprecursors", ListUtils::create<String>("true,false"));
 
     // register peptide indexing parameter (with defaults for this search engine) TODO: check if search engine defaults are needed
     registerPeptideIndexingParameter_(PeptideIndexing().getParameters()); 
@@ -272,6 +299,13 @@ protected:
 
     os << "num_threads = " << getIntOption_("threads") << "\n";                         // 0=poll CPU to set num threads; else specify num threads directly (max 64)
 
+    os << "fragindex_min_ions_score = " << getIntOption_("fragindex_min_ions_score") << "\n";   // minimum number of matched fragment ion index peaks for scoring
+    os << "fragindex_min_ions_report = " << getIntOption_("fragindex_min_ions_report") << "\n"; // minimum number of matched fragment ion index peaks for reporting(>= fragindex_min_ions_score)
+    os << "fragindex_num_spectrumpeaks = " << getIntOption_("fragindex_num_spectrumpeaks") << "\n"; // number of peaks from spectrum to use for fragment ion index matching
+    os << "fragindex_min_fragmentmass = " << getDoubleOption_("fragindex_min_fragmentmass") << "\n";    // low mass cutoff for fragment ions
+    os << "fragindex_max_fragmentmass = " << getDoubleOption_("fragindex_max_fragmentmass") << "\n";    // high mass cutoff for fragment ions
+    os << "fragindex_skipreadprecursors = " << (int)(getStringOption_("fragindex_skipreadprecursors") == "true") << "\n";   // 0=read precursors to limit fragment ion index, 1=skip reading precursors
+
     // masses
     map<String,int> precursor_error_units;
     precursor_error_units["amu"] = 0;
@@ -283,8 +317,10 @@ protected:
     isotope_error["0/1"] = 1;
     isotope_error["0/1/2"] = 2;
     isotope_error["0/1/2/3"] = 3;
-    isotope_error["-8/-4/0/4/8"] = 4;
-    isotope_error["-1/0/1/2/3"] = 5;
+    isotope_error["-1/0/1/2/3"] = 4;
+    isotope_error["-1/0/1"] = 5;
+    isotope_error["-3/-2/-1/0/1/2/3"] = 6;
+    isotope_error["-8/-4/0/4/8"] = 7;
 
     // comet_version is something like "# comet_version 2017.01 rev. 1"
     QRegularExpression comet_version_regex("(\\d{4})\\.(\\d*)rev");
@@ -319,7 +355,8 @@ protected:
     os << "mass_type_parent = " << 1 << "\n";                    // 0=average masses, 1=monoisotopic masses
     os << "mass_type_fragment = " << 1 << "\n";                  // 0=average masses, 1=monoisotopic masses
     os << "precursor_tolerance_type = " << 1 << "\n";            // 0=MH+ (default), 1=precursor m/z; only valid for amu/mmu tolerances
-    os << "isotope_error = " << isotope_error[getStringOption_(Constants::UserParam::ISOTOPE_ERROR)] << "\n";                   // 0=off, 1=0/1 (C13 error), 2=0/1/2, 3=0/1/2/3, 4=-8/-4/0/4/8 (for +4/+8 labeling)
+    os << "isotope_error = " << isotope_error[getStringOption_(Constants::UserParam::ISOTOPE_ERROR)] << "\n";                   // 0=off, 1=0/1 (C13 error), 2=0/1/2, 3=0/1/2/3, 4=-1/0/1/2/3, 5=-1/0/1
+    os << "resolve_fullpaths = " << 1 << "\n";                   // 0=do not resolve the full paths, 1=will resolve the full paths (default)
 
     // search enzyme
 
@@ -533,6 +570,13 @@ protected:
     os << "output_suffix =\n";                                   // add a suffix to output base names i.e. suffix "-C" generates base-C.pep.xml from base.mzXML input
     os << "mass_offsets = " << ListUtils::concatenate(getDoubleList_("mass_offsets"), " ") << "\n"; // one or more mass offsets to search (values subtracted from deconvoluted precursor mass)
     os << "precursor_NL_ions =\n"; //  one or more precursor neutral loss masses, will be added to xcorr analysis 
+    os << "pinfile_protein_delimiter = " << getStringOption_("pinfile_protein_delimiter") << "\n";
+    for (char residue = 'A'; residue <= 'Z'; ++residue) {
+      std::string set_str = generateSetString_(residue);
+      if (getDoubleOption_(set_str)) { 
+        os << set_str << " = " << getDoubleOption_(set_str) << "\n";
+      }
+    }
 
     // spectral processing
     map<string,int> remove_precursor_peak;
