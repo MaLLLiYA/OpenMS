@@ -217,7 +217,7 @@ protected:
     registerIntOption_("spectrum_batch_size", "<posnum>", 20000, "max. number of spectra to search at a time; use 0 to search the entire scan range in one batch", false, true);
     setMinInt_("spectrum_batch_size", 0);
     registerDoubleList_("mass_offsets", "<doubleoffset1, doubleoffset2,...>", {0.0}, "One or more mass offsets to search (values subtracted from deconvoluted precursor mass). Has to include 0.0 if you want the default mass to be searched.", false, true);
-    registerStringOption_("pinfile_protein_delimiter", "<delimiter>", "\t", "specify a different character or string for the protein column delimiter (default tab)", false, true);
+    registerStringOption_("pinfile_protein_delimiter", "<delimiter>", "", "specify a different character or string for the protein column delimiter (default tab)", false, true);
     
     for (char residue = 'A'; residue <= 'Z'; ++residue)
     {
@@ -253,6 +253,18 @@ protected:
     registerStringOption_("require_variable_mod", "<bool>", "false", "If true, requires at least one variable modification per peptide", false, true);
     setValidStrings_("require_variable_mod", ListUtils::create<String>("true,false"));
 
+    // fragment ion indexing parameters
+    registerDoubleOption_("fragindex_max_fragmentmass", "<mass>", 2000.0, "The maximum fragment ion mass to include in the fragment ion index", false, true);
+    registerDoubleOption_("fragindex_min_fragmentmass", "<mass>", 200.0, "The minimum fragment ion mass to include in the fragment ion index", false, true);
+    registerIntOption_("fragindex_min_ions_report", "<num>", 3, "The minimum number fragment ions a peptide must match against the fragment ion index in order to report this peptide in the output", false, true);
+    setMinInt_("fragindex_min_ions_report", 1);
+    registerIntOption_("fragindex_min_ions_score", "<num>", 3, "The minimum number fragment ions a peptide must match against the fragment ion index in order to proceed to xcorr scoring", false, true);
+    setMinInt_("fragindex_min_ions_score", 1);
+    registerIntOption_("fragindex_num_spectrumpeaks", "<num>", 100, "The number of mass/intensity pairs that would be queried against the fragment ion index", false, true);
+    setMinInt_("fragindex_num_spectrumpeaks", 1);
+    registerStringOption_("fragindex_skipreadprecursors", "<bool>", "false", "Whether or not Comet reads all precursors from the input files, if true, skip reading precursors from the input file", false, true);
+    setValidStrings_("fragindex_skipreadprecursors", ListUtils::create<String>("true,false"));
+
     // register peptide indexing parameter (with defaults for this search engine) TODO: check if search engine defaults are needed
     registerPeptideIndexingParameter_(PeptideIndexing().getParameters()); 
   }
@@ -285,6 +297,13 @@ protected:
     os << "peff_obo =\n";                                                               // path to PSI Mod or Unimod OBO file
 
     os << "num_threads = " << getIntOption_("threads") << "\n";                         // 0=poll CPU to set num threads; else specify num threads directly (max 64)
+
+    os << "fragindex_min_ions_score = " << getIntOption_("fragindex_min_ions_score") << "\n";   // minimum number of matched fragment ion index peaks for scoring
+    os << "fragindex_min_ions_report = " << getIntOption_("fragindex_min_ions_report") << "\n"; // minimum number of matched fragment ion index peaks for reporting(>= fragindex_min_ions_score)
+    os << "fragindex_num_spectrumpeaks = " << getIntOption_("fragindex_num_spectrumpeaks") << "\n"; // number of peaks from spectrum to use for fragment ion index matching
+    os << "fragindex_min_fragmentmass = " << getDoubleOption_("fragindex_min_fragmentmass") << "\n";    // low mass cutoff for fragment ions
+    os << "fragindex_max_fragmentmass = " << getDoubleOption_("fragindex_max_fragmentmass") << "\n";    // high mass cutoff for fragment ions
+    os << "fragindex_skipreadprecursors = " << (int)(getStringOption_("fragindex_skipreadprecursors") == "true") << "\n";   // 0=read precursors to limit fragment ion index, 1=skip reading precursors
 
     // masses
     map<String,int> precursor_error_units;
