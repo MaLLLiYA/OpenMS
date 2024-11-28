@@ -111,7 +111,7 @@ protected:
        << underline(TOPPBase::getDocumentationURL()) << " " // the space is needed ...
        << '\n'
        << bright("To cite OpenMS:\n") << " + "
-       << is.indent(3) << cite_openms_.toString() << is.indent(0);
+       << is.indent(3) << cite_openms.toString() << is.indent(0);
 
     is << "\n\n"
        << green("<< OpenMS Version >>\n")
@@ -130,7 +130,7 @@ protected:
        << "Binary path  : " << OPENMS_BINARY_PATH << "\n"
        << "Binary arch  : " << Internal::OpenMSOSInfo::getBinaryArchitecture() << "\n"
        << "Build type   : " << Internal::OpenMSBuildInfo::getBuildType() << "\n";
-#if COINOR_SOLVER == 1
+#ifdef OPENMS_HAS_COINOR
     is << "LP-Solver    : COIN-OR\n";
 #else
     cout << "LP-Solver    : GLPK\n";
