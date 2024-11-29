@@ -104,10 +104,9 @@
 				<UserParam type="string" name="CometAdapter:1:allow_nterm_protein_cleavage" value="true"/>
 				<UserParam type="string" name="CometAdapter:1:name" value="auto"/>
 				<UserParam type="string" name="CometAdapter:1:specificity" value="auto"/>
-				<UserParam type="string" name="extra_features" value="isotope_error,COMET:deltaCn,COMET:deltaLCn,COMET:lnExpect,MS:1002252,MS:1002255,COMET:lnNumSP,COMET:lnRankSP,COMET:IonFrac"/>
 				<UserParam name="EnzymeTermSpecificity" type="string" value="full" />
 	</SearchParameters>
-	<IdentificationRun date="2024-11-28T17:38:20" search_engine="Comet" search_engine_version="# comet_version 2024.02 rev. 0" search_parameters_ref="SP_0" >
+	<IdentificationRun date="2024-11-29T13:13:55" search_engine="Comet" search_engine_version="# comet_version 2024.02 rev. 0" search_parameters_ref="SP_0" >
 		<ProteinIdentification score_type="" higher_score_better="true" significance_threshold="0" >
 			<ProteinHit id="PH_0" accession="sp|A9ESU7|ALR_SORC5" score="0.0" sequence="" >
 				<UserParam type="string" name="target_decoy" value="target"/>
@@ -1797,7 +1796,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.2581"/>
@@ -2407,7 +2406,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.4849"/>
@@ -3043,7 +3042,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.7612"/>
@@ -3141,7 +3140,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.1972"/>
@@ -3533,7 +3532,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="0.6931"/>
@@ -4169,7 +4168,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="1.0986"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="1.0986"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="4.0073"/>
@@ -4927,7 +4926,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.0986"/>
@@ -5123,7 +5122,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.1781"/>
@@ -5149,7 +5148,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="0.0"/>
@@ -5321,7 +5320,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.6391"/>
@@ -5883,7 +5882,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="1.3863"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="1.3863"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.0794"/>
@@ -5909,7 +5908,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="0.0"/>
@@ -5959,7 +5958,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.767343125265392"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.7675"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.7918"/>
@@ -6179,7 +6178,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.0794"/>
@@ -6497,7 +6496,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.9459"/>
@@ -6523,7 +6522,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.025"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.025"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="0.6931"/>
@@ -6549,7 +6548,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.9459"/>
@@ -6819,7 +6818,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.9459"/>
@@ -6941,7 +6940,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.6109"/>
@@ -7161,7 +7160,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="1.0986"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="1.0986"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.3322"/>
@@ -7357,7 +7356,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.4849"/>
@@ -7505,7 +7504,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.1972"/>
@@ -7579,7 +7578,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="1.0986"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="1.0986"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.0794"/>
@@ -8239,7 +8238,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.05"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.05"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.3863"/>
@@ -8289,7 +8288,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.3863"/>
@@ -8315,7 +8314,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0556"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0556"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.1972"/>
@@ -8925,7 +8924,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0714"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0714"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.9957"/>
@@ -8951,7 +8950,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.3863"/>
@@ -9147,7 +9146,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.7918"/>
@@ -9173,7 +9172,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.1"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.1"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.0986"/>
@@ -9565,7 +9564,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.6094"/>
@@ -9663,7 +9662,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.5649"/>
@@ -9981,7 +9980,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.5649"/>
@@ -10007,7 +10006,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.3863"/>
@@ -10423,7 +10422,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0556"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0556"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.9459"/>
@@ -10643,7 +10642,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.5649"/>
@@ -10693,7 +10692,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.7918"/>
@@ -11181,7 +11180,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.1"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.1"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="6.1591"/>
@@ -11867,7 +11866,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.7918"/>
@@ -11893,7 +11892,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.6094"/>
@@ -12015,7 +12014,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="4.2485"/>
@@ -12747,7 +12746,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0714"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0714"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.9957"/>
@@ -12797,7 +12796,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.4849"/>
@@ -12969,7 +12968,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="4.3944"/>
@@ -13213,7 +13212,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.1781"/>
@@ -13775,7 +13774,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.4849"/>
@@ -14509,7 +14508,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.3322"/>
@@ -14533,7 +14532,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.3322"/>
@@ -14559,7 +14558,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.0986"/>
@@ -14975,7 +14974,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="0.6931"/>
@@ -15367,7 +15366,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.0794"/>
@@ -15929,7 +15928,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="1.0986"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="1.0986"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.9444"/>
@@ -16345,7 +16344,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.6094"/>
@@ -16371,7 +16370,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0714"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0714"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.3863"/>
@@ -16787,7 +16786,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0625"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.9444"/>
@@ -16813,7 +16812,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.9444"/>
@@ -17351,7 +17350,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="1.0986"/>
@@ -17621,7 +17620,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.9957"/>
@@ -17695,7 +17694,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.6931"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.6931"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0833"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0833"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.4849"/>
@@ -18061,7 +18060,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="1.0986"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="1.0986"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.8286"/>
@@ -18209,7 +18208,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0556"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0556"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.1972"/>
@@ -18673,7 +18672,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="1.0986"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="1.0986"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="3.0445"/>
@@ -18795,7 +18794,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="4.4659"/>
@@ -18917,7 +18916,7 @@
 				<UserParam type="float" name="Comet:lnrSp" value="0.0"/>
 				<UserParam type="float" name="COMET:lnRankSP" value="0.0"/>
 				<UserParam type="float" name="COMET:deltaLCn" value="0.0"/>
-				<UserParam type="float" name="COMET:lnExpect" value="6.906754778648554"/>
+				<UserParam type="float" name="COMET:lnExpect" value="6.9068"/>
 				<UserParam type="float" name="Comet:IonFrac" value="0.0357"/>
 				<UserParam type="float" name="COMET:IonFrac" value="0.0357"/>
 				<UserParam type="float" name="COMET:lnNumSP" value="2.7726"/>
