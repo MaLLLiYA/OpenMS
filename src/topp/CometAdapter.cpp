@@ -325,14 +325,10 @@ protected:
     precursor_error_units["ppm"] = 2;
 
     map<string,int> isotope_error;
-    isotope_error[isotope_error_str[0]] = 0;
-    isotope_error[isotope_error_str[1]] = 1;
-    isotope_error[isotope_error_str[2]] = 2;
-    isotope_error[isotope_error_str[3]] = 3;
-    isotope_error[isotope_error_str[4]] = 4;
-    isotope_error[isotope_error_str[5]] = 5;
-    isotope_error[isotope_error_str[6]] = 6;
-    isotope_error[isotope_error_str[7]] = 7;
+for (size_t i = 0; i < isotope_error_str.size(); ++i) 
+{
+    isotope_error[isotope_error_str[i]] = i;
+}
 
     // comet_version is something like "# comet_version 2017.01 rev. 1"
     QRegularExpression comet_version_regex("(\\d{4})\\.(\\d*)rev");
