@@ -98,12 +98,12 @@ protected:
 
   map<string,int> num_enzyme_termini {{"semi",1},{"fully",2},{"C-term unspecific", 8},{"N-term unspecific",9}};
 
+  map<int, string> isotope_error_str {
+    {0, "off"}, {1, "0/1"}, {2, "0/1/2"}, {3, "0/1/2/3"}, {4, "-1/0/1/2/3"}, {5, "-1/0/1"}, {6, "-3/-2/-1/0/1/2/3"}, {7, "-8/-4/0/4/8"}};
+
   std::string generateSetString_(const char residue) const
   {
-    std::string set_str = "set_";
-    set_str += residue;
-    set_str += "_residue";
-    return set_str;
+    return "set_" + std::string(1, residue) + "_residue";
   }
 
   void registerOptionsAndFlags_() override
@@ -138,7 +138,17 @@ protected:
     //registerIntOption_("mass_type_fragment", "<num>", 1, "0=average masses, 1=monoisotopic masses", false, true);
     //registerIntOption_("precursor_tolerance_type", "<num>", 0, "0=average masses, 1=monoisotopic masses", false, false);
     registerStringOption_(Constants::UserParam::ISOTOPE_ERROR, "<choice>", "off", "This parameter controls whether the peptide_mass_tolerance takes into account possible isotope errors in the precursor mass measurement. Use -8/-4/0/4/8 only for SILAC.", false, false);
-    setValidStrings_(Constants::UserParam::ISOTOPE_ERROR, ListUtils::create<String>("off,0/1,0/1/2,0/1/2/3,-1/0/1/2/3,-1/0/1,-3/-2/-1/0/1/2/3,-8/-4/0/4/8"));
+    //setValidStrings_(Constants::UserParam::ISOTOPE_ERROR, ListUtils::create<String>("off,0/1,0/1/2,0/1/2/3,-1/0/1/2/3,-1/0/1,-3/-2/-1/0/1/2/3,-8/-4/0/4/8"));
+    setValidStrings_(Constants::UserParam::ISOTOPE_ERROR, {
+                                                            isotope_error_str[0],
+                                                            isotope_error_str[1],
+                                                            isotope_error_str[2],
+                                                            isotope_error_str[3],
+                                                            isotope_error_str[4],
+                                                            isotope_error_str[5],
+                                                            isotope_error_str[6],
+                                                            isotope_error_str[7],
+                                                          });
 
     //Fragment Ions
     registerDoubleOption_("fragment_mass_tolerance", "<tolerance>", 0.01,
@@ -256,7 +266,9 @@ protected:
 
     // fragment ion indexing parameters
     registerDoubleOption_("fragindex_max_fragmentmass", "<mass>", 2000.0, "The maximum fragment ion mass to include in the fragment ion index", false, true);
+    setMinFloat_("fragindex_max_fragmentmass", 0.0);
     registerDoubleOption_("fragindex_min_fragmentmass", "<mass>", 200.0, "The minimum fragment ion mass to include in the fragment ion index", false, true);
+    setMinFloat_("fragindex_min_fragmentmass", 0.0);
     registerIntOption_("fragindex_min_ions_report", "<num>", 3, "The minimum number fragment ions a peptide must match against the fragment ion index in order to report this peptide in the output", false, true);
     setMinInt_("fragindex_min_ions_report", 1);
     registerIntOption_("fragindex_min_ions_score", "<num>", 3, "The minimum number fragment ions a peptide must match against the fragment ion index in order to proceed to xcorr scoring", false, true);
@@ -264,7 +276,7 @@ protected:
     registerIntOption_("fragindex_num_spectrumpeaks", "<num>", 100, "The number of mass/intensity pairs that would be queried against the fragment ion index", false, true);
     setMinInt_("fragindex_num_spectrumpeaks", 1);
     registerStringOption_("fragindex_skipreadprecursors", "<bool>", "false", "Whether or not Comet reads all precursors from the input files, if true, skip reading precursors from the input file", false, true);
-    setValidStrings_("fragindex_skipreadprecursors", ListUtils::create<String>("true,false"));
+    setValidStrings_("fragindex_skipreadprecursors", {"true", "false"});
 
     // register peptide indexing parameter (with defaults for this search engine) TODO: check if search engine defaults are needed
     registerPeptideIndexingParameter_(PeptideIndexing().getParameters()); 
@@ -313,14 +325,14 @@ protected:
     precursor_error_units["ppm"] = 2;
 
     map<string,int> isotope_error;
-    isotope_error["off"] = 0;
-    isotope_error["0/1"] = 1;
-    isotope_error["0/1/2"] = 2;
-    isotope_error["0/1/2/3"] = 3;
-    isotope_error["-1/0/1/2/3"] = 4;
-    isotope_error["-1/0/1"] = 5;
-    isotope_error["-3/-2/-1/0/1/2/3"] = 6;
-    isotope_error["-8/-4/0/4/8"] = 7;
+    isotope_error[isotope_error_str[0]] = 0;
+    isotope_error[isotope_error_str[1]] = 1;
+    isotope_error[isotope_error_str[2]] = 2;
+    isotope_error[isotope_error_str[3]] = 3;
+    isotope_error[isotope_error_str[4]] = 4;
+    isotope_error[isotope_error_str[5]] = 5;
+    isotope_error[isotope_error_str[6]] = 6;
+    isotope_error[isotope_error_str[7]] = 7;
 
     // comet_version is something like "# comet_version 2017.01 rev. 1"
     QRegularExpression comet_version_regex("(\\d{4})\\.(\\d*)rev");
@@ -355,7 +367,7 @@ protected:
     os << "mass_type_parent = " << 1 << "\n";                    // 0=average masses, 1=monoisotopic masses
     os << "mass_type_fragment = " << 1 << "\n";                  // 0=average masses, 1=monoisotopic masses
     os << "precursor_tolerance_type = " << 1 << "\n";            // 0=MH+ (default), 1=precursor m/z; only valid for amu/mmu tolerances
-    os << "isotope_error = " << isotope_error[getStringOption_(Constants::UserParam::ISOTOPE_ERROR)] << "\n";                   // 0=off, 1=0/1 (C13 error), 2=0/1/2, 3=0/1/2/3, 4=-1/0/1/2/3, 5=-1/0/1
+    os << "isotope_error = " << isotope_error[getStringOption_(Constants::UserParam::ISOTOPE_ERROR)] << "\n";                   
     os << "resolve_fullpaths = " << 1 << "\n";                   // 0=do not resolve the full paths, 1=will resolve the full paths (default)
 
     // search enzyme
@@ -572,10 +584,7 @@ protected:
     os << "precursor_NL_ions =\n"; //  one or more precursor neutral loss masses, will be added to xcorr analysis 
     os << "pinfile_protein_delimiter = " << getStringOption_("pinfile_protein_delimiter") << "\n";
     for (char residue = 'A'; residue <= 'Z'; ++residue) {
-      std::string set_str = generateSetString_(residue);
-      if (getDoubleOption_(set_str)) { 
-        os << set_str << " = " << getDoubleOption_(set_str) << "\n";
-      }
+      os << generateSetString_(residue) << " = " << getDoubleOption_(generateSetString_(residue)) << "\n";
     }
 
     // spectral processing
