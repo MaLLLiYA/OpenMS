@@ -98,8 +98,7 @@ protected:
 
   map<string,int> num_enzyme_termini {{"semi",1},{"fully",2},{"C-term unspecific", 8},{"N-term unspecific",9}};
 
-  map<int, string> isotope_error_str {
-    {0, "off"}, {1, "0/1"}, {2, "0/1/2"}, {3, "0/1/2/3"}, {4, "-1/0/1/2/3"}, {5, "-1/0/1"}, {6, "-3/-2/-1/0/1/2/3"}, {7, "-8/-4/0/4/8"}};
+  std::vector<String> isotope_error_str {"off", "0/1", "0/1/2", "0/1/2/3", "-1/0/1/2/3", "-1/0/1", "-3/-2/-1/0/1/2/3", "-8/-4/0/4/8"};
 
   std::string generateSetString_(const char residue) const
   {
