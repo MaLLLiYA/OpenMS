@@ -137,16 +137,7 @@ protected:
     //registerIntOption_("mass_type_fragment", "<num>", 1, "0=average masses, 1=monoisotopic masses", false, true);
     //registerIntOption_("precursor_tolerance_type", "<num>", 0, "0=average masses, 1=monoisotopic masses", false, false);
     registerStringOption_(Constants::UserParam::ISOTOPE_ERROR, "<choice>", "off", "This parameter controls whether the peptide_mass_tolerance takes into account possible isotope errors in the precursor mass measurement. Use -8/-4/0/4/8 only for SILAC.", false, false);
-    setValidStrings_(Constants::UserParam::ISOTOPE_ERROR, {
-                                                            isotope_error_str[0],
-                                                            isotope_error_str[1],
-                                                            isotope_error_str[2],
-                                                            isotope_error_str[3],
-                                                            isotope_error_str[4],
-                                                            isotope_error_str[5],
-                                                            isotope_error_str[6],
-                                                            isotope_error_str[7],
-                                                          });
+    setValidStrings_(Constants::UserParam::ISOTOPE_ERROR, isotope_error_str);
 
     //Fragment Ions
     registerDoubleOption_("fragment_mass_tolerance", "<tolerance>", 0.01,
