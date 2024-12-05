@@ -224,7 +224,6 @@ protected:
       std::string set_str = generateSetString_(residue);
       registerDoubleOption_(set_str, "<mass>", 0.0, "Redefine the base mass of this residue; applies to both the average and monoisotopic mass (default of 0.0 will use Comet's default masses)", false, true);
       setMinFloat_(set_str, 0.0);
-      setMinFloat_(set_str, 0.0);
     }
 
     // spectral processing
@@ -315,12 +314,6 @@ protected:
     precursor_error_units["mmu"] = 1;
     precursor_error_units["ppm"] = 2;
 
-    map<string,int> isotope_error;
-for (size_t i = 0; i < isotope_error_str.size(); ++i) 
-{
-    isotope_error[isotope_error_str[i]] = i;
-}
-
     // comet_version is something like "# comet_version 2017.01 rev. 1"
     QRegularExpression comet_version_regex("(\\d{4})\\.(\\d*)rev");
     if (auto match = comet_version_regex.match(comet_version.toQString().remove(' ')); match.hasMatch())
@@ -354,7 +347,7 @@ for (size_t i = 0; i < isotope_error_str.size(); ++i)
     os << "mass_type_parent = " << 1 << "\n";                    // 0=average masses, 1=monoisotopic masses
     os << "mass_type_fragment = " << 1 << "\n";                  // 0=average masses, 1=monoisotopic masses
     os << "precursor_tolerance_type = " << 1 << "\n";            // 0=MH+ (default), 1=precursor m/z; only valid for amu/mmu tolerances
-    os << "isotope_error = " << isotope_error[getStringOption_(Constants::UserParam::ISOTOPE_ERROR)] << "\n";                   
+    os << "isotope_error = " << std::distance(isotope_error_str.begin(), std::find(isotope_error_str.begin(), isotope_error_str.end(), getStringOption_(Constants::UserParam::ISOTOPE_ERROR))) << "\n";     
     os << "resolve_fullpaths = " << 1 << "\n";                   // 0=do not resolve the full paths, 1=will resolve the full paths (default)
 
     // search enzyme
