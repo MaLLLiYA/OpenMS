@@ -223,6 +223,7 @@ protected:
     {
       std::string set_str = generateSetString_(residue);
       registerDoubleOption_(set_str, "<mass>", 0.0, "Redefine the base mass of this residue; applies to both the average and monoisotopic mass (default of 0.0 will use Comet's default masses)", false, true);
+      setMinFloat_(set_str, 0.0);
     }
 
     // spectral processing
