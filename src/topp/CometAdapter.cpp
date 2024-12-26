@@ -8,6 +8,7 @@
 
 #include <OpenMS/APPLICATIONS/SearchEngineBase.h>
 
+#include <OpenMS/ANALYSIS/ID/PercolatorFeatureSetHelper.h>
 #include <OpenMS/ANALYSIS/ID/PeptideIndexing.h>
 #include <OpenMS/DATASTRUCTURES/DefaultParamHandler.h>
 // TODO remove this once we have handler transform support
@@ -631,7 +632,7 @@ protected:
     TOPPBase::ExitCodes exit_code = runExternalProcess_(comet_executable.toQString(), QStringList() << "-p", tmp_dir.getPath().toQString());
     if (exit_code != EXECUTION_OK)
     {
-      return EXTERNAL_PROGRAM_ERROR;
+      return exit_code; // will do the right thing, since it's correctly mapping TOPPBase exit codes
     }
     // the first line of 'comet.params.new' contains a string like: "# comet_version 2017.01 rev. 1"
     String comet_version; 
@@ -750,6 +751,11 @@ protected:
 
     // if "reindex" parameter is set to true will perform reindexing
     if (auto ret = reindex_(protein_identifications, peptide_identifications); ret != EXECUTION_OK) return ret;
+
+    // add percolator features
+    StringList feature_set;
+    PercolatorFeatureSetHelper::addCOMETFeatures(peptide_identifications, feature_set);
+    protein_identifications.front().getSearchParameters().setMetaValue("extra_features", ListUtils::concatenate(feature_set, ","));
 
     FileHandler().storeIdentifications(out, protein_identifications, peptide_identifications, {FileTypes::IDXML});
 
