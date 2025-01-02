@@ -91,7 +91,7 @@
 				<UserParam type="float" name="MS:1002252" value="0.162"/>
 				<UserParam type="float" name="COMET:xcorr" value="0.162"/>
 				<UserParam type="float" name="MS:1002253" value="1.0"/>
-				<UserParam type="float" name="COMET:deltaCn" value="0.0"/>
+				<UserParam type="float" name="COMET:deltaCn" value="1.0"/>
 				<UserParam type="float" name="MS:1002255" value="0.0"/>
 				<UserParam type="float" name="COMET:spscore" value="0.0"/>
 				<UserParam type="float" name="MS:1002256" value="1.0"/>
