@@ -66,7 +66,7 @@ OPENMS_FINDBINARY(MSFRAGGER_BINARY "MSFragger.jar" "MSFragger")
 
 #------------------------------------------------------------------------------
 # percolator
-OPENMS_FINDBINARY(PERCOLATOR_BINARY "percolator" "Percolator")
+OPENMS_FINDBINARY(PERCOLATOR_BINARY "percolator;percolator.exe" "Percolator")
 
 #------------------------------------------------------------------------------
 # Novor
