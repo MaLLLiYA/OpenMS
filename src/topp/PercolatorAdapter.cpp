@@ -282,6 +282,10 @@ protected:
     registerDoubleOption_("ipf_max_peakgroup_pep", "<value>", 0.7, "OSW/IPF: Assess transitions only for candidate peak groups until maximum posterior error probability.", !is_required, is_advanced_option);
     registerDoubleOption_("ipf_max_transition_isotope_overlap", "<value>", 0.5, "OSW/IPF: Maximum isotope overlap to consider transitions in IPF.", !is_required, is_advanced_option);
     registerDoubleOption_("ipf_min_transition_sn", "<value>", 0, "OSW/IPF: Minimum log signal-to-noise level to consider transitions in IPF. Set -1 to disable this filter.", !is_required, is_advanced_option);
+
+    //RESET
+    registerFlag_("reset-algorithm", "Run an implementation of the Percolator-RESET Algorithm.", is_advanced_option);
+    registerFlag_("composition-match", "Run an implementation of the Percolator-RESET psmsAndPeptides with target-decoy matching based on composition.", is_advanced_option);
   }
   
 
@@ -920,6 +924,14 @@ protected:
       if (description_of_correct != 0)
       {
         arguments << "-D" << String(description_of_correct).toQString();
+      }
+      if (getFlag_("reset-algorithm"))
+      {
+          arguments << "--reset-algorithm";
+      }
+      if (getFlag_("composition-match"))
+      {
+          arguments << "--composition-match";
       }
       arguments << pin_file.toQString();
     }
