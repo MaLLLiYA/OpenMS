@@ -108,7 +108,7 @@ namespace OpenMS
       param_pi.update(param, false, false, false, false, OpenMS_Log_debug); // suppress param. update message
       indexer.setParameters(param_pi);
       indexer.setLogType(this->log_type_);
-      FASTAContainer<TFI_File> proteins(getDBFilename());
+      FASTAContainer<TFI_File> proteins(getDBFilename(protein_identifications[0].getSearchParameters().db));
       PeptideIndexing::ExitCodes indexer_exit = indexer.run(proteins, protein_identifications, peptide_identifications);
 
       if ((indexer_exit != PeptideIndexing::EXECUTION_OK) &&

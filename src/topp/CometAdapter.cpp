@@ -72,6 +72,10 @@ The default parameters are set for a high resolution instrument.
 
 @note This adapter supports 15N labeling by specifying the 20 AA modifications 'Label:15N(x)' as fixed modifications.
 
+@note Fragment ion indexing: Use the -fragindex flag to generate a .idx file for faster database searches. 
+      This runs 'comet.exe -i' and creates a fragment ion index that can speed up subsequent searches.
+      See https://uwpr.github.io/Comet/notes/20241001_FI.html for details.
+
 <B>The command line parameters of this tool are:</B>
 @verbinclude TOPP_CometAdapter.cli
 <B>INI file documentation of this tool:</B>
@@ -104,9 +108,9 @@ protected:
   void registerOptionsAndFlags_() override
   {
 
-    registerInputFile_("in", "<file>", "", "Input file");
+    registerInputFile_("in", "<file>", "", "Input file (not required when using -fragindex)", false);
     setValidFormats_("in", { "mzML" } );
-    registerOutputFile_("out", "<file>", "", "Output file");
+    registerOutputFile_("out", "<file>", "", "Output file (not required when using -fragindex)", false);
     setValidFormats_("out", { "idXML"} );
     registerInputFile_("database", "<file>", "", "FASTA file", true, false, {"skipexists"});
     setValidFormats_("database", { "FASTA" } );
@@ -114,6 +118,7 @@ protected:
       // choose the default value according to the platform where it will be executed
       "comet.exe", // this is the name on ALL platforms currently...
       "The Comet executable. Provide a full or relative path, or make sure it can be found in your PATH environment.", true, false, {"is_executable"});
+    registerFlag_("fragindex", "Generate fragment ion index (.idx) file for the database. When set, runs 'comet.exe -i' and exits after index generation. In this mode, 'in' and 'out' parameters are not required.", false);
 
     //
     // Optional parameters
@@ -662,13 +667,79 @@ protected:
     writeDebug_("Comet Version extracted is: '" + comet_version + "\n", 2);
 
     //-------------------------------------------------------------
+    // Fragment index generation mode
+    //-------------------------------------------------------------
+    if (getFlag_("fragindex"))
+    {
+      OPENMS_LOG_INFO << "Fragment index generation mode enabled. Generating .idx file..." << std::endl;
+      
+      String default_params = getStringOption_("default_params_file");
+      String tmp_file;
+
+      // default params given or to be written
+      if (default_params.empty())
+      {
+        tmp_file = tmp_dir.getPath() + "param.txt";
+        ofstream os(tmp_file.c_str());
+        auto ret = createParamFile_(os, comet_version);
+        os.close();
+        if (ret != EXECUTION_OK)
+        {
+          return ret;
+        }
+      }
+      else
+      {
+        tmp_file = default_params;
+      }
+
+      // Run comet with -i flag to generate fragment index
+      String paramP = "-P" + tmp_file;
+      QStringList arguments;
+      arguments << "-i" << paramP.toQString();
+
+      OPENMS_LOG_INFO << "Running: " << comet_executable << " -i " << paramP << std::endl;
+      exit_code = runExternalProcess_(comet_executable.toQString(), arguments);
+      
+      if (exit_code != EXECUTION_OK)
+      {
+        OPENMS_LOG_ERROR << "Fragment index generation failed!" << std::endl;
+        return exit_code;
+      }
+
+      String db_name = getStringOption_("database");
+      String idx_file = db_name + ".idx";
+      OPENMS_LOG_INFO << "Fragment index file generated: " << idx_file << std::endl;
+      OPENMS_LOG_INFO << "Fragment index generation completed successfully." << std::endl;
+      
+      return EXECUTION_OK;
+    }
+
+    //-------------------------------------------------------------
+    // Validate required parameters for normal search mode
+    //-------------------------------------------------------------
+    String inputfile_name = getStringOption_("in");
+    String out = getStringOption_("out");
+    
+    if (inputfile_name.empty())
+    {
+      OPENMS_LOG_ERROR << "Error: Parameter 'in' is required when not using -fragindex mode." << std::endl;
+      return ILLEGAL_PARAMETERS;
+    }
+    
+    if (out.empty())
+    {
+      OPENMS_LOG_ERROR << "Error: Parameter 'out' is required when not using -fragindex mode." << std::endl;
+      return ILLEGAL_PARAMETERS;
+    }
+
+    //-------------------------------------------------------------
     // reading input
     //-------------------------------------------------------------
 
 
     int ms_level = getIntOption_("ms_level");
-    String inputfile_name = getRawfileName(ms_level);
-    String out = getStringOption_("out");
+    inputfile_name = getRawfileName(ms_level);
     String db_name = getDBFilename();
 
     // tmp_dir
@@ -765,7 +836,12 @@ protected:
     protein_identifications[0].getSearchParameters().enzyme_term_specificity =
     static_cast<EnzymaticDigestion::Specificity>(num_enzyme_termini[getStringOption_("num_enzyme_termini")]);
     protein_identifications[0].getSearchParameters().charges = getStringOption_("precursor_charge");
-    protein_identifications[0].getSearchParameters().db = getStringOption_("database");
+    String database_name = getStringOption_("database");
+    if (database_name.hasSuffix(".idx"))
+    {
+      database_name = database_name.substr(0, database_name.size() - 4); // Remove ".idx"
+    }
+    protein_identifications[0].getSearchParameters().db = database_name;
 
     // write all (!) parameters as metavalues to the search parameters
     if (!protein_identifications.empty())
